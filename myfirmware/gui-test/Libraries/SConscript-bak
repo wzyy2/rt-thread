@@ -1,0 +1,19 @@
+Import('RTT_ROOT')
+Import('rtconfig')
+from building import *
+
+# get current directory
+cwd = GetCurrentDir()
+
+
+src = Glob('STM32_USB_OTG_Driver/src/*.c')
+src += Glob('STM32_USB_HOST_Library/Core/src/*.c')
+src += Glob('STM32_USB_Device_Library/Core/src/*.c')
+
+path = [cwd + '/STM32_USB_OTG_Driver/inc', 
+    cwd + '/STM32_USB_HOST_Library/Core/inc', 
+    cwd + '/STM32_USB_Device_Library/Core/inc']
+
+group = DefineGroup('STM32_USB', src, depend = [''], CPPPATH = path)
+
+Return('group')
