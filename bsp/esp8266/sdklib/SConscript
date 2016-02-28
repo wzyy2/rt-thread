@@ -1,0 +1,15 @@
+Import('rtconfig')
+from building import *
+
+cwd = GetCurrentDir()
+src	= Glob('*.c')
+
+CPPPATH = [cwd]
+LIBS = ['gcc', 'main', 'net80211', 'phy', 'pp', 'wpa', 'hal', 'c', 'm']
+# LIBS = ['hal', 'esp8266', 'gcc', 'c', 'm']
+LIBPATH = [cwd +"/../build/sdklib"]
+
+
+group = DefineGroup('lib', src, depend = [''], CPPPATH = CPPPATH, LIBS=LIBS, LIBPATH=LIBPATH)
+
+Return('group')
