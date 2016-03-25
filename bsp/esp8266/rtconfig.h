@@ -6,7 +6,7 @@
 
 #define RT_USING_SERIAL
 
-#define RT_USING_NEWLIB
+#define RT_USING_LIBC
 
 #define RT_USING_COMPONENTS_INIT
 
